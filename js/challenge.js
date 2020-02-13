@@ -16,12 +16,12 @@ startCount(time)
     console.log("im in initiazize", time)
         add1Button.addEventListener("click", increaseCounter); 
         minusButton.addEventListener("click", decrementCounter);
-        //add1Button.onclick = increaseCounter(event, time); 
+        heartButton.addEventListener("click", heartNum); 
  
 function startCount(){  
     counter.innerHTML = time  
      timedCount() 
-    
+         
 } 
 
 function timedCount(){
@@ -32,7 +32,8 @@ function timedCount(){
 
          
 function increaseCounter() {    
-    ++time  
+    ++time
+    i = 0
    console.log("im in increaseCounter", time)
     counter.innerHTML = time   
    
@@ -43,8 +44,18 @@ function decrementCounter(){
     --time 
     counter.innerHTML = time
     console.log("counter -1", time) 
-
+    debugger
 }
 
+
+let arry = [] 
+let i = 0 
+function heartNum(e){  
+
+    arry.push(time, "pushed", i)
+   ++i 
+   console.log(arry) 
+
+}
 
 }
