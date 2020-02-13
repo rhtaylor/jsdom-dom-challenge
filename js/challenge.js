@@ -14,8 +14,8 @@ let time = parseInt(numberOfCount, 10);
 startCount(time) 
 
     console.log("im in initiazize", time)
-        add1Button.addEventListener("click", increaseCounter) ; 
-        
+        add1Button.addEventListener("click", increaseCounter); 
+        minusButton.addEventListener("click", decrementCounter);
         //add1Button.onclick = increaseCounter(event, time); 
  
 function startCount(){  
@@ -38,6 +38,13 @@ function increaseCounter() {
    
    
 } 
+
+function decrementCounter(){
+    --time 
+    counter.innerHTML = time
+    console.log("counter -1", time) 
+
+}
 
 
 }
