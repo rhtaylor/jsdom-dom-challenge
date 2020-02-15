@@ -49,32 +49,37 @@ startCount(time)
         --time 
         counter.innerHTML = time
         console.log("counter -1", time) 
-        debugger
+        
 }
 
 
-let arryOfLi = [] 
+
 
         function heartNum(e){
                 if (e){ i++}
             let likesDiv =  document.querySelector(".likes")
-            console.log(likesDiv) 
+            console.log("likesDiv//:", likesDiv) 
                 // stoping the flow of logic to prevent duplcate li for same number    
             let liAlreadyMade = document.querySelector(`.li${time}`); 
             
-            console.log("let logic flow ", liAlreadyMade)
+            console.log("liAlreadyMade: ", liAlreadyMade)
             if (liAlreadyMade) { 
+                let htext = liAlreadyMade.innerHTML; 
+                let pulledNumber = htext.match(/liked \d+/)  
+                let j = pulledNumber[0]  
+                let jnum = j[j.length - 1]
+                jnum ++
+                console.log("after", j)
+                console.log("pulledNumber:", pulledNumber , "j", ) 
+                console.log("i", i, "j", j)
+                liAlreadyMade.innerText = `${time} liked ${jnum} times` 
                 
-                liAlreadyMade.innerText = `${time} liked ${i} times` 
-                console.log("something not working", i)
             } else {
                 
                 let liForDiv = document.createElement("li");
              
             liForDiv.setAttribute("class", `li${time}`); 
             likesDiv.appendChild(liForDiv); 
-            let LisInDiv =  document.querySelector(`.li${time}`); 
-            arryOfLi.push(LisInDiv);
             liForDiv.innerHTML = `${time} liked ${i} times`;
             }
         }
