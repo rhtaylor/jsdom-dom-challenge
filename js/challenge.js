@@ -16,7 +16,7 @@ let numberOfCount = counter.innerText;
 
 console.log(numberOfCount)
 let time = parseInt(numberOfCount, 10);  
-startCount(time) 
+let timez = startCount(time) 
 
     console.log("im in initiazize", time)
         add1Button.addEventListener("click", increaseCounter); 
@@ -25,13 +25,17 @@ startCount(time)
  
     function startCount(){  
         counter.innerHTML = time  
-        timedCount() 
+       return timedCount() 
          
 } 
 
     function timedCount(){
-        console.log("im in timedCount", time)
-        setInterval(function () { increaseCounter() }, 20000); 
+        
+
+
+        return setInterval(function () { increaseCounter() }, 2000);  
+        
+        
   
 } 
 
@@ -58,20 +62,16 @@ startCount(time)
         function heartNum(e){
                 if (e){ i++}
             let likesDiv =  document.querySelector(".likes")
-            console.log("likesDiv//:", likesDiv) 
-                // stoping the flow of logic to prevent duplcate li for same number    
+            
             let liAlreadyMade = document.querySelector(`.li${time}`); 
             
-            console.log("liAlreadyMade: ", liAlreadyMade)
             if (liAlreadyMade) { 
                 let htext = liAlreadyMade.innerHTML; 
                 let pulledNumber = htext.match(/liked \d+/)  
                 let j = pulledNumber[0]  
                 let jnum = j[j.length - 1]
                 jnum ++
-                console.log("after", j)
-                console.log("pulledNumber:", pulledNumber , "j", ) 
-                console.log("i", i, "j", j)
+               
                 liAlreadyMade.innerText = `${time} liked ${jnum} times` 
                 
             } else {
@@ -84,5 +84,20 @@ startCount(time)
             }
         }
 
+        pauseButton.addEventListener("click", function(){
+            if (pauseButton.innerText == "pause"){
+            clearInterval(timez) 
+            pauseButton.innerText = "resume" } 
+            else if (pauseButton.innerText == "resume") {  
+                pauseButton.innerText = "pause"    
+                startCount()
+                
+                 }
+            })
+              
+        
+
+        
+        
 
 }
