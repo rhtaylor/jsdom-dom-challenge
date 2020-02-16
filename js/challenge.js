@@ -9,7 +9,8 @@ const counter = document.getElementById("counter");
 const add1Button = document.getElementById("plus");
 const minusButton = document.getElementById("minus"); 
 const heartButton = document.getElementById("heart");
-const pauseButton = document.getElementById("pause");
+const pauseButton = document.getElementById("pause"); 
+const comment = document.getElementById("submit")
 const likeBox = document.querySelector(".likes");
 
 let numberOfCount = counter.innerText;  
@@ -110,5 +111,16 @@ let timez = startCount(time)
             }
         
         
+    comment.addEventListener("click", function (event) {
+        event.preventDefault() 
+       let textField = document.getElementById("comment-input") 
+       let divy =  document.getElementById("list") 
+       let p = document.createElement("P") 
+       p.innerHTML = textField.value  
+
+       divy.appendChild(p)
+       textField.value = '' 
+    });
+
 
 }
