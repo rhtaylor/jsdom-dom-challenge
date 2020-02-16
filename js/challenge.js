@@ -30,10 +30,10 @@ let timez = startCount(time)
 } 
 
     function timedCount(){
-        
+        console.log("i was called")
 
 
-        return setInterval(function () { increaseCounter() }, 2000);  
+        return setInterval(function () { increaseCounter() }, 3000);  
         
         
   
@@ -41,6 +41,7 @@ let timez = startCount(time)
 
          
     function increaseCounter() {    
+        console.log("I was called after startCounter was called")
         ++time;
          i = 0;
     console.log("I control the count, im in increaseCounter", time, "i //=>", i)
@@ -86,17 +87,27 @@ let timez = startCount(time)
 
         pauseButton.addEventListener("click", function(){
             if (pauseButton.innerText == "pause"){
-            clearInterval(timez) 
+            clearInterval(timez)
+            logicGate()
             pauseButton.innerText = "resume" } 
             else if (pauseButton.innerText == "resume") {  
-                pauseButton.innerText = "pause"    
-                startCount()
+                pauseButton.innerText = "pause"
+                logicGate()    
+                timez = startCount()
                 
                  }
             })
               
-        
+            buttonArray = [ add1Button, minusButton, heartButton]
+            function logicGate(){  
+                buttonArray.forEach(element => { 
+                    
+                    if (element.disabled){ 
+                        element.disabled = false 
+                    } else { element.disabled = true }
+                });
 
+            }
         
         
 
